@@ -33,9 +33,12 @@ function PostForm() {
   };
 
   return (
-    <Container maxWidth="sm">
+    <Container
+      maxWidth="sm"
+      style={{ backgroundColor: "#fff", padding: "100px 20px 50px 20px" }}
+    >
       <CustomSnackbar snackOpen={snackOpen} setSnackOpen={setSnackOpen} />
-      <Typography variant="h5" align="center" style={{ marginBottom: "30px" }}>
+      <Typography variant="h4" align="center" style={{ marginBottom: "30px" }}>
         Create new post
       </Typography>
       <form onSubmit={handleSubmit}>

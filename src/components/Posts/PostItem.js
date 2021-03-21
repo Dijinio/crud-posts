@@ -7,8 +7,9 @@ import {
   Typography,
 } from "@material-ui/core";
 import React from "react";
+import { Link } from "react-router-dom";
 
-function PostItem({ title, body }) {
+function PostItem({ id, title, body }) {
   return (
     <Grid item xs={12}>
       <Card elevation={3}>
@@ -17,9 +18,15 @@ function PostItem({ title, body }) {
           <Typography variant="body1">{body}</Typography>
         </CardContent>
         <CardActions>
-          <a href="/" className="">
-            More...
-          </a>
+          <Typography
+            variant="button"
+            color="primary"
+            component={Link}
+            to={`/posts/${id}`}
+            style={{ textDecoration: "none" }}
+          >
+            Read more...
+          </Typography>
         </CardActions>
       </Card>
     </Grid>

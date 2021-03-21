@@ -33,7 +33,7 @@ function OptionsAndSearch({ postsPerPage, setPostsPerPage, setSearchPhrase }) {
       <Grid item xs={12} sm={6}>
         <TextField
           type="search"
-          placeholder="Search posts"
+          placeholder="Search posts by title..."
           fullWidth
           onChange={(e) => setSearchPhrase(e.target.value)}
           InputProps={{

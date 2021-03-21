@@ -5,7 +5,7 @@ const createActions = (dispatch) => {
     getPosts: async () => {
       try {
         const { data } = await api.fetchPosts();
-        dispatch({ type: "FETCH_POSTS", payload: data });
+        dispatch({ type: "GET_POSTS", payload: data });
       } catch (error) {
         console.log(error);
       }

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Grid, Typography } from "@material-ui/core";
+import { CircularProgress, Grid, Typography } from "@material-ui/core";
 import { Pagination } from "@material-ui/lab";
 import { PostsContext } from "../../context/posts";
 import PostItem from "./PostItem";
@@ -17,7 +17,7 @@ function Posts() {
   // and Updates currentPosts on Search
   useEffect(() => {
     const filteredPosts = posts.filter((post) =>
-      post.title.includes(searchPhrase)
+      post.title.toLowerCase().includes(searchPhrase.toLowerCase())
     );
 
     setCurrentPage(1);
@@ -40,8 +40,12 @@ function Posts() {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
-  return (
-    <>
+  return posts.length < 2 ? (
+    <Grid container justify="center" style={{ paddingTop: "200px" }}>
+      <CircularProgress color="secondary" />
+    </Grid>
+  ) : (
+    <div style={{ paddingTop: "100px" }}>
       <Typography variant="h4" align="center">
         Posts
       </Typography>
@@ -62,7 +66,7 @@ function Posts() {
         onChange={handlePageChange}
         style={{ margin: "30px 0" }}
       />
-    </>
+    </div>
   );
 }
 
